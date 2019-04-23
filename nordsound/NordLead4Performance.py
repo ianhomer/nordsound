@@ -6,13 +6,38 @@ from .NordSound import NordSound
 
 EXPECTED_SIZE = 1295
 
-Performance = namedtuple('Performance','a b c d e f g h')
+# Manual list 10 performance level properties
+Performance = namedtuple('Performance',"""
+    a
+    b
+    c
+    d
+    e
+    f
+    g
+    h
+""")
 PERFORMACE_FORMAT = '8B13x'
 PERFORMACE_LENGTH = 21
-Program = namedtuple('Program','a b c d e f g h')
+
+# Manual lists about 80 program properties
+# + 6 morphs of a subset of these properties - say just below 40 
+Program = namedtuple('Program',"""
+    a
+    b
+    c
+    d
+    e
+    f
+    g
+    h
+""")
 PROGRAM_FORMAT = '8B307x'
 PROGRAM_LENGTH = 315
-Tail = namedtuple('Tail','a b')
+Tail = namedtuple('Tail',"""
+    a
+    b
+""")
 TAIL_FORMAT = 'BB'
 TAIL_LENGTH = 2
 

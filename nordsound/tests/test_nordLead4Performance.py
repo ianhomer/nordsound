@@ -2,7 +2,7 @@ import os
 
 from unittest import TestCase
 
-from nordsound.tests.Data import Data
+from Data import Data
 from nordsound.NordLead4Performance import NordLead4Performance, EXPECTED_SIZE
 
 class TestNordLead4Performance(TestCase):
