@@ -11,3 +11,6 @@ class TestNordLead4Performance(TestCase):
         self.assertEqual(sound.size, EXPECTED_SIZE)
         self.assertEqual(sound.type, "nl4p")
         self.assertEqual(len(sound.programs), 4)
+        self.assertEqual(sound.performance.a, 1)
+        self.assertEqual(sound.programs[1].a, 128)
+        self.assertEqual(sound.tail.a, 195)

@@ -6,14 +6,14 @@ from .NordSound import NordSound
 
 EXPECTED_SIZE = 1295
 
-Performance = namedtuple('Performance','value')
-PERFORMACE_FORMAT = 'b20x'
+Performance = namedtuple('Performance','a b c d e f g h')
+PERFORMACE_FORMAT = '8B13x'
 PERFORMACE_LENGTH = 21
-Program = namedtuple('Program','value')
-PROGRAM_FORMAT = 'b314x'
+Program = namedtuple('Program','a b c d e f g h')
+PROGRAM_FORMAT = '8B307x'
 PROGRAM_LENGTH = 315
-Tail = namedtuple('Tail','value')
-TAIL_FORMAT = 'bx'
+Tail = namedtuple('Tail','a b')
+TAIL_FORMAT = 'BB'
 TAIL_LENGTH = 2
 
 class NordLead4Performance(NordSound):
@@ -33,6 +33,6 @@ class NordLead4Performance(NordSound):
         self.programs = []
         for i in range(0,4):
             self.programs.append(
-                Performance._make(struct.unpack(PERFORMACE_FORMAT, stream.read(PERFORMACE_LENGTH)))
+                Program._make(struct.unpack(PROGRAM_FORMAT, stream.read(PROGRAM_LENGTH)))
             )
         self.tail = Tail._make(struct.unpack(TAIL_FORMAT, stream.read(TAIL_LENGTH)))
