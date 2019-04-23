@@ -9,3 +9,4 @@ class TestNordLead4Program(TestCase):
     def test_nord_lead_4_program(self):
         sound = NordLead4Program(Data().filename("test.nl4p"))
         self.assertEqual(sound.size, EXPECTED_SIZE)
+        self.assertEqual(sound.type, "nl4p")
