@@ -22,7 +22,7 @@ class NordSound:
         self.parse(stream)
 
     def parse(self, stream):
-        self.head = NORD_HEAD_BLOCK.parse(stream)
+        self.head = self.headBlock.parse(stream)
         self.verified()
         self.type = self.toString(self.head.type)
         debug(f"Type = {self.type}")
@@ -32,6 +32,8 @@ class NordSound:
 
     def verified(self):
         self.assertEquals(self.head.name, EXPECTED_HEAD, "Nord Sound file should start with")
+        if self.expectedSize > 0 and self.size != self.expectedSize:
+            raise Exception(f"{type(self)} should be {self.expectedSize} bytes, it was {self.size}")
         return self
 
     def assertEquals(self, bytes, expected, message):
@@ -41,3 +43,11 @@ class NordSound:
 
     def toString(self, bytes):
         return bytes.decode('utf-8')
+
+    @property
+    def headBlock(self):
+        return NORD_HEAD_BLOCK
+
+    @property
+    def expectedSize(self):
+        return -1
