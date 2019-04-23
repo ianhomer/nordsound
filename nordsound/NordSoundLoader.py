@@ -1,8 +1,8 @@
 from .NordSound import NordSound
-from .NordLead4Program import NordLead4Program
+from .NordLead4Performance import NordLead4Performance
 
 TYPES = {
-    "nl4p": NordLead4Program
+    "nl4p": NordLead4Performance
 }
 class NordSoundLoader:
     def load(self, filename):
