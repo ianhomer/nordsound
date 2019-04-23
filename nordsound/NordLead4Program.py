@@ -21,7 +21,25 @@ PROGRAM_BLOCK = SoundBlock('Program',"""
     f
     g
     h
-""",'8B307x')
+    i
+    j
+    k
+    l
+    m
+    n
+    o
+    p
+    q
+    r
+    s
+    t
+    u
+    v
+    w
+    x
+    y
+    z
+""",'26B289x')
 
 class NordLead4Program(NordSound):
     def __repr__(self):

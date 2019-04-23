@@ -1,6 +1,6 @@
 from termcolor import colored
 
-DEBUG = True
+DEBUG = False
 
 def error(s):
     print(colored("*** " + str(s) + " ***","red"))
