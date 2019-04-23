@@ -1,11 +1,15 @@
-import os, io, struct
+import os, io
 
-from collections import namedtuple
 from .logger import debug
+from .SoundBlock import SoundBlock
 
 EXPECTED_HEAD = "CBIN"
 
-Head = namedtuple('Head','name type')
+NORD_HEAD_BLOCK = SoundBlock("NordHead","""
+    name
+    version
+    type
+    """,'4sB3x4s',12)
 
 class NordSound:
     def __init__(self, filename):
@@ -18,10 +22,17 @@ class NordSound:
         self.parse(stream)
 
     def parse(self, stream):
-        head = Head._make(struct.unpack('4s4x4s', stream.read(12)))
-        self.assertEquals(head.name, EXPECTED_HEAD, "Nord Sound file should start with")
-        self.type = self.toString(head.type)
-        debug(f"Found {self.toString(head.type)}")
+        self.head = NORD_HEAD_BLOCK.parse(stream)
+        self.verified()
+        self.type = self.toString(self.head.type)
+        debug(f"Type = {self.type}")
+        self.version = self.head.version
+        self.typeVersion = self.type + "." + str(self.head.version)
+        debug(f"Found {self.toString(self.head.type)}")
+
+    def verified(self):
+        self.assertEquals(self.head.name, EXPECTED_HEAD, "Nord Sound file should start with")
+        return self
 
     def assertEquals(self, bytes, expected, message):
         s = self.toString(bytes)
