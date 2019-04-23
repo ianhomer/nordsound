@@ -11,7 +11,7 @@ PERFORMANCE_BLOCK = SoundBlock('Performance',"""
     f
     g
     h
-""",'8B13x',21)
+""",'8B13x')
 
 # Manual lists about 80 program properties
 # + 6 morphs of a subset of these properties - say just below 40
@@ -24,12 +24,12 @@ PROGRAM_BLOCK = SoundBlock('Program',"""
     f
     g
     h
-""",'8B307x',315)
+""",'8B307x')
 
 TAIL_BLOCK = SoundBlock('Tail',"""
     a
     b
-""",'BB',2)
+""",'BB')
 
 class NordLead4Performance0(NordLead4Performance):
     @property

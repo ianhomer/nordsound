@@ -5,10 +5,10 @@ from .NordSound import NordSound
 from .SoundBlock import SoundBlock
 
 PROGRAM_HEAD_BLOCK = SoundBlock('ProgramHead',"""
-    a
-    b
+    bank
+    index
     c
-""",'3B31x',34)
+""",'BxBB30x')
 
 # Manual lists about 80 program properties
 # + 6 morphs of a subset of these properties - say just below 40
@@ -21,7 +21,7 @@ PROGRAM_BLOCK = SoundBlock('Program',"""
     f
     g
     h
-""",'8B307x',315)
+""",'8B307x')
 
 class NordLead4Program(NordSound):
     def __repr__(self):

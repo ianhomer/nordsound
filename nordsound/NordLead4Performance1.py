@@ -12,9 +12,9 @@ PERFORMANCE_BLOCK = SoundBlock('Performance',"""
     f
     g
     h
-""",'8B33x',41)
+""",'8B33x')
 
-TAIL_BLOCK = SoundBlock('Tail','','',0)
+TAIL_BLOCK = SoundBlock('Tail','','')
 
 class NordLead4Performance1(NordLead4Performance):
     @property

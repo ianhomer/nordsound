@@ -9,7 +9,7 @@ NORD_HEAD_BLOCK = SoundBlock("NordHead","""
     name
     version
     type
-    """,'4sB3x4s',12)
+    """,'4sB3x4s')
 
 class NordSound:
     def __init__(self, filename):

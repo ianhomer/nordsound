@@ -2,10 +2,10 @@ import struct
 from collections import namedtuple
 
 class SoundBlock:
-    def __init__(self, name, fieldNames, format, length):
+    def __init__(self, name, fieldNames, format):
         self.tuple = namedtuple(name, fieldNames)
         self.format = format
-        self.length = length
+        self.length = struct.calcsize(format)
 
     def parse(self, stream):
         if self.length == 0:
